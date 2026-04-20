@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Luna Alvarez Castillo — Auditoría Digital Completa 2026 · by Tomas Teloni</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --bg:      #fafafa;
+      --white:   #ffffff;
+      --card:    #ffffff;
+      --card2:   #f9f9f9;
+      --border:  #e0e0e0;
+      --muted:   #999999;
+      --subtle:  #b0b0b0;
+      --text:    #1a1a1a;
+      --accent:  #d4af37;
+      --accent2: #8b7500;
+      --green:   #2ecc71;
+      --yellow:  #f39c12;
+      --red:     #e74c3c;
+      --blue:    #3498db;
+      --instagram: #E1306C;
+      --facebook:  #1877F2;
+      --tiktok:    #000000;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Georgia', 'Segoe UI', sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+    }
+    .header-left { display: flex; align-items: center; gap: 18px; }
+    .logo-box {
+      width: 50px; height: 50px;
+      background: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Georgia', serif;
+      font-size: 16px; font-weight: bold;
+      color: var(--text); letter-spacing: 2px; flex-shrink: 0;
+    }
+    .brand-name {
+      font-family: 'Georgia', serif;
+      font-size: 18px; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--text); font-weight: normal;
+    }
+    .brand-sub {
+      font-size: 11px; letter-spacing: 1px;
+      color: var(--subtle); text-transform: uppercase; margin-top: 3px;
+    }
+    .header-center { text-align: center; }
+    .audit-title {
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 3px; font-weight: 600;
+    }
+    .audit-period { font-size: 12px; color: var(--subtle); letter-spacing: 0.5px; }
+    .audit-by-tomas {
+      font-size: 11px; letter-spacing: 1px; color: var(--accent);
+      font-weight: 600; margin-top: 4px;
+    }
+    .header-right { text-align: right; }
+    .health-score-label {
+      font-size: 10px; letter-spacing: 1px; color: var(--subtle);
+      text-transform: uppercase; margin-bottom: 4px;
+    }
+    .health-score-value {
+      font-family: 'Georgia', serif;
+      font-size: 36px; color: var(--accent); letter-spacing: -1px; line-height: 1;
+    }
+    .health-score-max { font-size: 16px; color: var(--muted); }
+    .health-score-tag {
+      font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--accent); margin-top: 4px; font-weight: 600;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 0 48px;
+      display: flex; gap: 0; overflow-x: auto;
+      box-shadow: 0 1px 1px rgba(0,0,0,0.04);
+    }
+    .nav-tab {
+      padding: 14px 20px;
+      font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--subtle); cursor: pointer; border: none; background: none;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap; transition: color .2s, border-color .2s;
+    }
+    .nav-tab:hover { color: var(--text); }
+    .nav-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    /* ── LAYOUT ── */
+    .section { padding: 48px; display: none; }
+    .section.active { display: block; }
+    .section-title {
+      font-family: 'Georgia', serif;
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 6px; font-weight: 600;
+    }
+    .section-heading {
+      font-family: 'Georgia', serif;
+      font-size: 26px; font-weight: normal;
+      color: var(--text); margin-bottom: 32px;
+    }
+
+    /* ── GRID ── */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 24px;
+    }
+    .card-sm { padding: 18px 20px; }
+    .card-label {
+      font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--subtle); margin-bottom: 8px; font-weight: 600;
+    }
+    .card-value {
+      font-family: 'Georgia', serif;
+      font-size: 28px; color: var(--text); line-height: 1;
+    }
+    .card-value.accent { color: var(--accent); }
+    .card-value.green  { color: var(--green); }
+    .card-value.yellow { color: var(--yellow); }
+    .card-value.red    { color: var(--red); }
+    .card-trend {
+      font-size: 11px; margin-top: 6px;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .trend-up   { color: var(--green); }
+    .trend-down { color: var(--red); }
+    .trend-flat { color: var(--subtle); }
+    .card-desc { font-size: 11px; color: var(--subtle); margin-top: 4px; }
+
+    /* ── CHART CONTAINERS ── */
+    .chart-wrap {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 24px;
+    }
+    .chart-title {
+      font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--subtle); margin-bottom: 20px; font-weight: 600;
+    }
+    .chart-canvas-wrap { position: relative; }
+
+    /* ── TABLES ── */
+    .table-wrap {
+      background: var(--card);
+      border: 1px solid var(--border);
+      overflow-x: auto;
+    }
+    .table-head {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      font-size: 10px; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--subtle); font-weight: 600;
+    }
+    table { width: 100%; border-collapse: collapse; }
+    th {
+      padding: 10px 16px; text-align: left;
+      font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--subtle); border-bottom: 1px solid var(--border);
+      white-space: nowrap; font-weight: 600;
+    }
+    td {
+      padding: 10px 16px; font-size: 12px;
+      border-bottom: 1px solid var(--border); color: var(--text);
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--card2); }
+    .badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 4px 10px; font-size: 10px; letter-spacing: 0.5px;
+      border-radius: 3px; font-weight: 500;
+    }
+    .badge-green  { background: rgba(46,204,113,.15); color: var(--green); border: 1px solid rgba(46,204,113,.3); }
+    .badge-yellow { background: rgba(243,156,18,.12); color: var(--yellow); border: 1px solid rgba(243,156,18,.3); }
+    .badge-red    { background: rgba(231,76,60,.15);  color: var(--red);    border: 1px solid rgba(231,76,60,.3); }
+    .badge-muted  { background: rgba(153,153,153,.1); color: var(--subtle); border: 1px solid rgba(153,153,153,.2); }
+
+    /* ── INSIGHT CARDS ── */
+    .insights-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 24px; }
+    .insight-section { }
+    .insight-header {
+      display: flex; align-items: center; gap: 10px;
+      padding: 14px 20px;
+      font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
+      font-weight: 600;
+      border-bottom: 1px solid var(--border);
+    }
+    .insight-header.green  { background: rgba(46,204,113,.08); color: var(--green); }
+    .insight-header.yellow { background: rgba(243,156,18,.07); color: var(--yellow); }
+    .insight-header.red    { background: rgba(231,76,60,.08);  color: var(--red); }
+    .insight-list {
+      background: var(--card); border: 1px solid var(--border);
+      border-top: none; list-style: none;
+    }
+    .insight-item {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      font-size: 12px; color: var(--text); line-height: 1.5;
+    }
+    .insight-item:last-child { border-bottom: none; }
+    .insight-item strong { color: var(--text); display: block; margin-bottom: 2px; font-weight: 600; }
+
+    /* ── SCORECARD ── */
+    .score-row {
+      display: flex; align-items: center; gap: 16px;
+      padding: 14px 0; border-bottom: 1px solid var(--border);
+    }
+    .score-row:last-child { border-bottom: none; }
+    .score-label { flex: 1; font-size: 12px; color: var(--text); font-weight: 500; }
+    .score-bar-wrap { flex: 2; height: 6px; background: var(--border); }
+    .score-bar { height: 100%; transition: width .6s ease; }
+    .score-num { width: 48px; text-align: right; font-size: 13px; color: var(--text); font-family: 'Georgia', serif; font-weight: 600; }
+    .score-status { width: 32px; text-align: center; font-size: 14px; }
+
+    /* ── MATRIX 2x2 ── */
+    .matrix-container {
+      display: grid; grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr; gap: 2px;
+      background: var(--border); aspect-ratio: 1 / 0.75;
+      min-height: 380px;
+    }
+    .matrix-quadrant {
+      padding: 20px; display: flex; flex-direction: column; gap: 8px;
+      background: var(--card);
+    }
+    .matrix-label {
+      font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
+      font-weight: 600; margin-bottom: 4px;
+    }
+    .matrix-q1 { background: rgba(46,204,113,.05); }
+    .matrix-q1 .matrix-label { color: var(--green); }
+    .matrix-q2 { background: rgba(52,152,219,.05); }
+    .matrix-q2 .matrix-label { color: var(--blue); }
+    .matrix-q3 { background: rgba(153,153,153,.04); }
+    .matrix-q3 .matrix-label { color: var(--subtle); }
+    .matrix-q4 { background: rgba(153,153,153,.03); }
+    .matrix-q4 .matrix-label { color: var(--muted); }
+    .matrix-tag {
+      display: inline-block; padding: 4px 10px;
+      font-size: 11px; border: 1px solid var(--border); color: var(--text);
+      background: var(--card2); cursor: default;
+    }
+
+    /* ── ROADMAP ── */
+    .roadmap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); }
+    .roadmap-phase { background: var(--card); padding: 24px; }
+    .roadmap-phase-title {
+      font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
+      margin-bottom: 4px; font-weight: 600;
+    }
+    .roadmap-phase-sub { font-size: 11px; color: var(--subtle); margin-bottom: 16px; }
+    .roadmap-items { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .roadmap-item {
+      display: flex; gap: 10px; align-items: flex-start;
+      font-size: 12px; color: var(--text); line-height: 1.4;
+    }
+    .roadmap-num {
+      min-width: 20px; height: 20px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; font-family: 'Georgia', serif; font-weight: 600;
+    }
+    .phase-q1 .roadmap-phase-title { color: var(--green); }
+    .phase-q1 .roadmap-num { background: rgba(46,204,113,.2); color: var(--green); }
+    .phase-q2 .roadmap-phase-title { color: var(--yellow); }
+    .phase-q2 .roadmap-num { background: rgba(243,156,18,.15); color: var(--yellow); }
+    .phase-q3 .roadmap-phase-title { color: var(--blue); }
+    .phase-q3 .roadmap-num { background: rgba(52,152,219,.15); color: var(--blue); }
+
+    /* ── DIVIDER ── */
+    .divider { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+
+    /* ── SOCIAL TABS ── */
+    .social-subnav {
+      display: flex; gap: 0; overflow-x: auto;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 32px;
+      margin-left: -48px;
+      margin-right: -48px;
+      padding: 0 48px;
+    }
+    .social-subnav-tab {
+      padding: 12px 22px;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--subtle);
+      cursor: pointer;
+      border: none;
+      background: none;
+      border-bottom: 3px solid transparent;
+      white-space: nowrap;
+      transition: color .2s, border-color .2s;
+      font-weight: 500;
+    }
+    .social-subnav-tab:hover { color: var(--text); }
+    .social-subnav-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+    .social-foda { display: none; }
+    .social-foda.active { display: block; }
+
+    /* ── SOCIAL SCORECARD ── */
+    .social-platform-row {
+      display: flex; align-items: center; gap: 16px;
+      padding: 14px 20px; border-bottom: 1px solid var(--border);
+    }
+    .social-platform-row:last-child { border-bottom: none; }
+    .platform-icon { font-size: 18px; width: 28px; text-align: center; }
+    .platform-name { width: 140px; font-size: 12px; color: var(--text); font-weight: 500; }
+    .platform-followers { width: 80px; font-size: 13px; color: var(--text); font-family: 'Georgia', serif; font-weight: 600; }
+    .platform-bar-wrap { flex: 1; height: 4px; background: var(--border); }
+    .platform-bar { height: 100%; }
+    .platform-score { width: 48px; text-align: right; font-size: 12px; color: var(--text); font-weight: 600; }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--white); border-top: 1px solid var(--border);
+      padding: 24px 48px;
+      display: flex; justify-content: space-between; align-items: center;
+      box-shadow: 0 -1px 2px rgba(0,0,0,0.04);
+    }
+    .footer-brand { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--subtle); font-weight: 600; }
+    .footer-note { font-size: 10px; color: var(--subtle); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .header { padding: 20px 24px; flex-wrap: wrap; }
+      .section { padding: 28px 24px; }
+      .nav { padding: 0 16px; }
+      .grid-2, .grid-3, .grid-4, .grid-5 { grid-template-columns: 1fr 1fr; }
+      .insights-grid { grid-template-columns: 1fr; }
+      .roadmap { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .grid-2, .grid-3, .grid-4, .grid-5 { grid-template-columns: 1fr; }
+      .header-center { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <div class="logo-box">LAC</div>
+    <div>
+      <div class="brand-name">Luna Alvarez Castillo</div>
+      <div class="brand-sub">Diseño de moda argentino · Premium</div>
+    </div>
+  </div>
+  <div class="header-center">
+    <div class="audit-title">Auditoría Digital Completa</div>
+    <div class="audit-period">Enero – Marzo 2026</div>
+    <div class="audit-by-tomas">by Tomas Teloni</div>
+  </div>
+  <div class="header-right">
+    <div class="health-score-label">Score de Salud</div>
+    <div><span class="health-score-value">54</span><span class="health-score-max">/100</span></div>
+    <div class="health-score-tag">Necesita Mejora</div>
+  </div>
+</div>
+
+<div class="nav" id="nav">
+  <button class="nav-tab active" onclick="showSection(event, 'overview')">Resumen</button>
+  <button class="nav-tab" onclick="showSection(event, 'ecommerce')">E-commerce</button>
+  <button class="nav-tab" onclick="showSection(event, 'ig-empresa')">IG Empresa</button>
+  <button class="nav-tab" onclick="showSection(event, 'ig-personal')">IG Personal</button>
+  <button class="nav-tab" onclick="showSection(event, 'facebook')">Facebook</button>
+  <button class="nav-tab" onclick="showSection(event, 'tiktok')">TikTok</button>
+  <button class="nav-tab" onclick="showSection(event, 'integral')">Análisis Integral</button>
+  <button class="nav-tab" onclick="showSection(event, 'recomendaciones')">Recomendaciones</button>
+  <button class="nav-tab" onclick="showSection(event, 'scorecard')">Scorecard</button>
+</div>
+
+<!-- ════════════════════════ RESUMEN EJECUTIVO ════════════════════════ -->
+<div id="overview" class="section active">
+  <div class="section-title">01. Resumen Ejecutivo</div>
+  <h1 class="section-heading">Personal Branding: Luna Alvarez Castillo</h1>
+
+  <div class="grid-4">
+    <div class="card">
+      <div class="card-label">IG Personal</div>
+      <div class="card-value accent">44K</div>
+      <div class="card-trend"><span class="trend-up">↑ Pilar digital</span></div>
+      <div class="card-desc">Lifestyle + moda</div>
+    </div>
+    <div class="card">
+      <div class="card-label">IG Empresa</div>
+      <div class="card-value yellow">8.4K</div>
+      <div class="card-trend"><span class="trend-flat">Sub-escalado</span></div>
+      <div class="card-desc">Producto/colecciones</div>
+    </div>
+    <div class="card">
+      <div class="card-label">TikTok</div>
+      <div class="card-value red">1.9K</div>
+      <div class="card-trend"><span class="trend-flat">Sin explotar</span></div>
+      <div class="card-desc">Pero alto engagement</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Health Score</div>
+      <div class="card-value accent">54/100</div>
+      <div class="card-trend"><span class="trend-flat">Oportunidades</span></div>
+      <div class="card-desc">Potencial significativo</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <div class="insights-grid">
+    <div>
+      <div class="insight-header green">✓ Fortalezas</div>
+      <ul class="insight-list">
+        <li class="insight-item"><strong>Personal branding fuerte:</strong> Nombre = marca (Luna Alvarez Castillo es aspiracional)</li>
+        <li class="insight-item"><strong>IG Personal robusto:</strong> 44K followers, contenido lifestyle auténtico, alto engagement relativo</li>
+        <li class="insight-item"><strong>Herencia familiar:</strong> Etiqueta Negra como respaldo, credibilidad/distribución premium</li>
+        <li class="insight-item"><strong>Presencia física:</strong> 6 tiendas en shopping centers de CABA (Bullrich, Alcorta, etc.)</li>
+        <li class="insight-item"><strong>Calidad de producto:</strong> Materiales nobles (cashmere, merino, cuero), estética distinguida</li>
+      </ul>
+    </div>
+    <div>
+      <div class="insight-header yellow">! Oportunidades</div>
+      <ul class="insight-list">
+        <li class="insight-item"><strong>Sinergia IG:</strong> Personal (44K) no está convertida a Empresa. Amplificador de marca sin usar</li>
+        <li class="insight-item"><strong>Email marketing:</strong> Cero. Oportunidad +15-25% repeat purchase</li>
+        <li class="insight-item"><strong>TikTok:</strong> 1.9K followers, 16K likes totales = alta eficiencia. Potencial 10K+ en 6 meses</li>
+        <li class="insight-item"><strong>Content strategy:</strong> BTS proceso creativo, inspiración, moda educativa</li>
+        <li class="insight-item"><strong>Influencer leverage:</strong> Ella es influencer. Monetizar mediante partnerships/sponsors</li>
+      </ul>
+    </div>
+    <div>
+      <div class="insight-header red">✗ Problemas</div>
+      <ul class="insight-list">
+        <li class="insight-item"><strong>IG Empresa muy pequeño:</strong> 8.4K vs IG Personal 44K. Falta de cohesión</li>
+        <li class="insight-item"><strong>E-commerce sub-página:</strong> Mezclado en etiquetanegra.us, sin tráfico propio</li>
+        <li class="insight-item"><strong>Conversión desconocida:</strong> No hay tracking de IG → tienda</li>
+        <li class="insight-item"><strong>Facebook inactivo:</strong> Pequeña presencia, sin estrategia</li>
+        <li class="insight-item"><strong>Fragmentación:</strong> Múltiples cuentas sin sinergia explícita</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <div class="grid-2">
+    <div class="chart-wrap">
+      <div class="chart-title">Radar de Salud Digital</div>
+      <div class="chart-canvas-wrap">
+        <canvas id="radarOverview"></canvas>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">Oportunidad #1</div>
+      <h3 style="font-size: 16px; color: var(--accent); margin: 8px 0 16px 0; font-weight: 600;">Estrategia de 2 cuentas IG + Sinergia</h3>
+      <p style="color: var(--text); line-height: 1.6; margin-bottom: 12px;">Luna tiene 44K followers en IG personal pero solo 8.4K en IG empresa. La personal es un amplificador no explotado.</p>
+      <p style="color: var(--text); line-height: 1.6; font-weight: 600;">Opción A (Recomendada):</p>
+      <ul style="margin-left: 20px; color: var(--text); font-size: 13px; line-height: 1.6;">
+        <li>Mantener separadas pero con estrategia clara</li>
+        <li>IG Personal → awareness, lifestyle, aspiration</li>
+        <li>IG Empresa → producto, colecciones, compra</li>
+        <li>Cross-promotion explícita en ambas</li>
+        <li>Expected: +50% traffic IG → tienda en 3 meses</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════ E-COMMERCE ════════════════════════ -->
+<div id="ecommerce" class="section">
+  <div class="section-title">02. E-commerce</div>
+  <h1 class="section-heading">Desempeño: etiquetanegra.us/luna-alvarez-castillo</h1>
+
+  <div class="grid-4">
+    <div class="card">
+      <div class="card-label">Ubicación</div>
+      <div class="card-value accent">Sub-página</div>
+      <div class="card-trend"><span class="trend-flat">En Etiqueta Negra</span></div>
+      <div class="card-desc">No tráfico orgánico propio</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Colecciones</div>
+      <div class="card-value yellow">20+ SKUs</div>
+      <div class="card-trend"><span class="trend-flat">Verano + Invierno</span></div>
+      <div class="card-desc">Seasonal rotation</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Rango de Precio</div>
+      <div class="card-value accent">ARS $8.8K–$498K</div>
+      <div class="card-trend"><span class="trend-up">Premium</span></div>
+      <div class="card-desc">Accesorios a calzado</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Envío</div>
+      <div class="card-value green">Gratis >$350K</div>
+      <div class="card-trend"><span class="trend-flat">Nacional</span></div>
+      <div class="card-desc">Envío a todo el país</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <div class="grid-2">
+    <div class="chart-wrap">
+      <div class="chart-title">Categorías de Producto</div>
+      <div class="chart-canvas-wrap">
+        <canvas id="barEcommerce"></canvas>
+      </div>
+    </div>
+    <div class="chart-wrap">
+      <div class="chart-title">Distribución de Precio</div>
+      <div class="chart-canvas-wrap">
+        <canvas id="doughnutPrice"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <div class="table-wrap">
+    <div class="table-head">Inventario de Funcionalidades E-commerce</div>
+    <table>
+      <tr>
+        <th>Funcionalidad</th>
+        <th>Estado</th>
+        <th>Descripción</th>
+      </tr>
+      <tr>
+        <td>Tienda integrada</td>
+        <td><span class="badge badge-green">Activo</span></td>
+        <td>Sub-página en etiquetanegra.us, integración nativa</td>
+      </tr>
+      <tr>
+        <td>Catálogo completo</td>
+        <td><span class="badge badge-green">Activo</span></td>
+        <td>20+ SKUs por temporada, actualización regular</td>
+      </tr>
+      <tr>
+        <td>Fotos de producto</td>
+        <td><span class="badge badge-yellow">Bueno</span></td>
+        <td>Editorial profesional, pero sin lifestyle context</td>
+      </tr>
+      <tr>
+        <td>Descripciones</td>
+        <td><span class="badge badge-yellow">Mejorable</span></td>
+        <td>Básicas, podrían tener más storytelling</td>
+      </tr>
+      <tr>
+        <td>Métodos de pago</td>
+        <td><span class="badge badge-green">Activo</span></td>
+        <td>Múltiples opciones, cuotas sin interés</td>
+      </tr>
+      <tr>
+        <td>Envío</td>
+        <td><span class="badge badge-green">Activo</span></td>
+        <td>Gratis >$350K ARS, entrega nacional</td>
+      </tr>
+      <tr>
+        <td>Link IG → Tienda</td>
+        <td><span class="badge badge-red">Débil</span></td>
+        <td>Biolink poco visible, sin CTA clara en posts</td>
+      </tr>
+      <tr>
+        <td>Email capture</td>
+        <td><span class="badge badge-red">Ausente</span></td>
+        <td>No hay newsletter, pop-up, o list building</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- ════════════════════════ IG EMPRESA ════════════════════════ -->
+<div id="ig-empresa" class="section">
+  <div class="section-title">03. Instagram Empresa</div>
+  <h1 class="section-heading">@luna.alvarezcastillo — Cuenta de Colecciones</h1>
+
+  <div class="grid-4">
+    <div class="card">
+      <div class="card-label">Followers</div>
+      <div class="card-value yellow">8.4K</div>
+      <div class="card-trend"><span class="trend-flat">Sub-explotado</span></div>
+      <div class="card-desc">vs IG Personal 44K</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Posts</div>
+      <div class="card-value accent">~404</div>
+      <div class="card-trend"><span class="trend-flat">Histórico</span></div>
+      <div class="card-desc">Cuenta activa</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Engagement est.</div>
+      <div class="card-value yellow">2–4%</div>
+      <div class="card-trend"><span class="trend-flat">Bajo para marca</span></div>
+      <div class="card-desc">Típico para tienda</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Following</div>
+      <div class="card-value yellow">0</div>
+      <div class="card-trend"><span class="trend-flat">Brand account</span></div>
+      <div class="card-desc">No sigue a nadie</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <div class="grid-2">
+    <div class="chart-wrap">
+      <div class="chart-title">Growth Trajectory (est.)</div>
+      <div class="chart-canvas-wrap">
+        <canvas id="lineIGEmpresa"></canvas>
+      </div>
+    </div>
+    <div class="chart-wrap">
+      <div class="chart-title">Contenido: Tipo de Post</div>
+      <div class="chart-canvas-wrap">
+        <canvas id="doughnutContentEmpresa"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <div class="insights-grid">
+    <div>
+      <div class="insight-header green">✓ Fortalezas</div>
+      <ul class="insight-list">
+        <li class="insight-item"><strong>Cuenta consolidada:</strong> 404 posts, presencia consistente desde inicio de línea</li>
+        <li class="insight-item"><strong>Editorial profesional:</strong> Fotografía de alto nivel (Oriana Calicchio), modelos top argentinas</li>
+        <li class="insight-item"><strong>Asociación marca fuerte:</strong> Etiqueta Negra como respaldo, credibilidad</li>
+        <li class="insight-item"><strong>Contenido de colecciones:</strong> Verano/Invierno, lookbooks, trending</li>
+      </ul>
+    </div>
+    <div>
+      <div class="insight-header yellow">! Oportunidades</div>
+      <ul class="insight-list">
+        <li class="insight-item"><strong>Crecimiento retenido:</strong> 8.4K puede crecer a 20K+ en 1 año con estrategia</li>
+        <li class="insight-item"><strong>Cross-promotion:</strong> IG Personal (44K) puede amplificar colecciones</li>
+        <li class="insight-item"><strong>Reels strategy:</strong> Formato alto engagement, sin explotar</li>
+        <li class="insight-item"><strong>Storytelling:</strong> Proceso creativo, inspiración de diseño, detrás de cámaras</li>
+        <li class="insight-item"><strong>Link clicks:</strong> Optimizar CTA a tienda en caption/biolink</li>
+      </ul>
+    </div>
+    <div>
+      <div class="insight-header red">✗ Problemas</div>
+      <ul class="insight-list">
+        <li class="insight-item"><strong>Muy pequeño:</strong> 8.4K followers es bajo para una marca con tiendas físicas premium</li>
+        <li class="insight-item"><strong>Baja interacción:</strong> 2–4% engagement es pasivo para contenido editorial</li>
+        <li class="insight-item"><strong>Sin llamados a acción:</strong> Posts no convierten seguidores → clientes</li>
+        <li class="insight-item"><strong>Invisibilidad en IG Personal:</strong> Luna no menciona @luna.alvarezcastillo en su perfil personal</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════ IG PERSONAL ════════════════════════ -->
+<div id="ig-personal" class="section">
+  <div class="section-title">04. Instagram Personal</div>
+  <h1 class="section-heading">@alvarezcastilloluna — Lifestyle & Influencer</h1>
+
+  <div class="grid-4">
+    <div class="card">
+      <div class="card-label">Followers</div>
+      <div class="card-value accent">44K</div>
+      <div class="card-trend"><span class="trend-up">5x > Empresa</span></div>
+      <div class="card-desc">Pilar digital principal</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Posts</div>
+      <div class="card-value accent">~414</div>
+      <div class="card-trend"><span class="trend-flat">Mixto histórico</span></div>
+      <div class="card-desc">Personal + promo</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Engagement est.</div>
+      <div class="card-value green">2–5%</div>
+      <div class="card-trend"><span class="trend-up">Más que Empresa</span></div>
+      <div class="card-desc">Público engaged</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Following</div>
+      <div class="card-value yellow">2.0K+</div>
+      <div class="card-trend"><span class="trend-flat">Social</span></div>
+      <div class="card-desc">Sigue a otros</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <div class="grid-2">
+    <div class="chart-wrap">
+      <div class="chart-title">Tipo de Contenido (estimado %)</div>
+      <div class="chart-canvas-wrap">
+        <canvas id="doughnutContentPersonal"></canvas>
+      </div>
+    </div>
+    <div class="chart-wrap">
+      <div class="chart-title">Comparativa Empresa vs Personal</div>
+      <div class="chart-canvas-wrap">
+        <canvas id="barComparativa"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <div class="insights-grid">
+    <div>
+      <div class="insight-header green">✓ Fortalezas</div>
+      <ul class="insight-list">
+        <li class="insight-item"><strong>Base sólida:</strong> 44K followers, comunidad auténtica</li>
+        <li class="insight-item"><strong>Diversidad de contenido:</strong> Lifestyle, travel, OOTD, personal stories → relatable</li>
+        <li class="insight-item"><strong>Influencer potential:</strong> Ella es la marca. Potencial para collaborations, sponsors</li>
+        <li class="insight-item"><strong>Engagement responsivo:</strong> Comentarios, DMs, interacción genuina</li>
+        <li class="insight-item"><strong>Autenticidad:</strong> No es solo venta. Conexión emocional con audiencia</li>
+      </ul>
+    </div>
+    <div>
+      <div class="insight-header yellow">! Oportunidades</div>
+      <ul class="insight-list">
+        <li class="insight-item"><strong>Amplificador de marca:</strong> No hay CTA clara a tienda desde personal account</li>
+        <li class="insight-item"><strong>Sinergia con Empresa:</strong> Mencionar @luna.alvarezcastillo en posts relevantes</li>
+        <li class="insight-item"><strong>Reels educativos:</strong> "Cómo combinar", "Behind the scenes", trending audio con estilo</li>
+        <li class="insight-item"><strong>Monetización personal:</strong> Sponsors, brand partnerships (ropa, lifestyle)</li>
+        <li class="insight-item"><strong>Email list:</strong> Convertir seguidores a newsletter subscribers</li>
+      </ul>
+    </div>
+    <div>
+      <div class="insight-header red">✗ Problemas</div>
+      <ul class="insight-list">
+        <li class="insight-item"><strong>Conversión desconocida:</strong> No está claro cuántos followers compran en la tienda</li>
+        <li class="insight-item"><strong>Falta de CTA:</strong> Bio + posts sin link directo a colecciones</li>
+        <li class="insight-item"><strong>Competencia interna:</strong> ¿IG Personal distrae de Empresa o amplifica?</li>
+        <li class="insight-item"><strong>Sin email capture:</strong> Followers no se convierten a lista para retargeting</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════ FACEBOOK ════════════════════════ -->
+<div id="facebook" class="section">
+  <div class="section-title">05. Facebook</div>
+  <h1 class="section-heading">Luna Alvarez Castillo — Presencia Limitada</h1>
+
+  <div class="grid-4">
+    <div class="card">
+      <div class="card-label">Followers</div>
+      <div class="card-value red">N/D</div>
+      <div class="card-trend"><span class="trend-flat">No público</span></div>
+      <div class="card-desc">Pequeña presencia</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Actividad</div>
+      <div class="card-value yellow">Ocasional</div>
+      <div class="card-trend"><span class="trend-flat">Campaign distribution</span></div>
+      <div class="card-desc">Compartida por @lomanagement</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Estrategia</div>
+      <div class="card-value red">Ausente</div>
+      <div class="card-trend"><span class="trend-down">No priorizado</span></div>
+      <div class="card-desc">Canal secundario</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Potencial</div>
+      <div class="card-value yellow">Bajo-Medio</div>
+      <div class="card-trend"><span class="trend-flat">Audiencia mayor</span></div>
+      <div class="card-desc">Si se activa</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <div class="card" style="padding: 20px;">
+    <h3 style="color: var(--text); font-size: 14px; margin-bottom: 12px; font-weight: 600;">Análisis</h3>
+    <p style="color: var(--text); line-height: 1.6; margin-bottom: 12px;">La página de Facebook existe pero no es un canal prioritario. Se usa principalmente para compartir contenido de campañas (ej: posts de @lomanagement tagging a Luna con modelos). Sin embargo, Facebook sigue siendo relevante para:</p>
+    <ul style="margin-left: 20px; color: var(--text); font-size: 13px; line-height: 1.6; margin-bottom: 12px;">
+      <li>Audiencia 35+ años (compradora de lujo)</li>
+      <li>Marketplace/Conversaciones privadas</li>
+      <li>Retargeting desde Tienda Nube</li>
+      <li>Community building (grupos privados)</li>
+    </ul>
+    <p style="color: var(--text); line-height: 1.6;"><strong>Recomendación:</strong> Activar con 1-2 posts/semana + testing de ads dirigidos a mujeres 35-55 años con interés en moda/lujo. ROI potencial si se conecta con tienda.</p>
+  </div>
+</div>
+
+<!-- ════════════════════════ TIKTOK ════════════════════════ -->
+<div id="tiktok" class="section">
+  <div class="section-title">06. TikTok Personal</div>
+  <h1 class="section-heading">@alvarezcastilloluna — Oportunidad Sin Explotar</h1>
+
+  <div class="grid-4">
+    <div class="card">
+      <div class="card-label">Followers</div>
+      <div class="card-value red">1.9K</div>
+      <div class="card-trend"><span class="trend-flat">Muy bajo</span></div>
+      <div class="card-desc">vs IG 44K</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Total Likes</div>
+      <div class="card-value green">16.3K</div>
+      <div class="card-trend"><span class="trend-up">8.2 por follower</span></div>
+      <div class="card-desc">Alto engagement potencial</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Contenido</div>
+      <div class="card-value yellow">Lifestyle</div>
+      <div class="card-trend"><span class="trend-flat">Variado</span></div>
+      <div class="card-desc">Viajes, moda, humor</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Potencial</div>
+      <div class="card-value green">Alto</div>
+      <div class="card-trend"><span class="trend-up">10K+ posible</span></div>
+      <div class="card-desc">En 6-12 meses</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <div class="grid-2">
+    <div class="chart-wrap">
+      <div class="chart-title">Eficiencia de Engagement TikTok</div>
+      <div class="chart-canvas-wrap">
+        <canvas id="radarTiktok"></canvas>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">Videos Encontrados</div>
+      <h3 style="font-size: 14px; color: var(--text); margin: 12px 0; font-weight: 600;">Ejemplos de Contenido Funcionando</h3>
+      <ul style="color: var(--text); font-size: 12px; line-height: 1.6;">
+        <li><strong>"Se picó: La historia de Luna Alvarez Castillo"</strong> → narrativa viral</li>
+        <li><strong>"Vacaciones con mi novio"</strong> → lifestyle relatable</li>
+        <li><strong>"Aburrida pero fashion"</strong> → humor + identidad</li>
+        <li><strong>"Favs vintage parte 2"</strong> → styling, secondhand consciousness</li>
+        <li><strong>"Estilo y Elegancia"</strong> → OOTD categoría</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <div class="insights-grid">
+    <div>
+      <div class="insight-header green">✓ Fortalezas</div>
+      <ul class="insight-list">
+        <li class="insight-item"><strong>Engagement alto:</strong> 16.3K likes en ~1.9K followers = 8.2x ratio, vs típico 0.5-1x</li>
+        <li class="insight-item"><strong>Contenido diverso:</strong> Travels, fashion, humor — audiencia joven responde bien</li>
+        <li class="insight-item"><strong>Autenticidad:</strong> Mismo tono que IG personal, pero formato más casual</li>
+      </ul>
+    </div>
+    <div>
+      <div class="insight-header yellow">! Oportunidades</div>
+      <ul class="insight-list">
+        <li class="insight-item"><strong>Escalada agresiva:</strong> 2 videos/semana + colabs + trending = 10K+ followers posibles en 6 meses</li>
+        <li class="insight-item"><strong>Monetización TikTok:</strong> Creator Fund, Brand partnerships, Sponsored</li>
+        <li class="insight-item"><strong>Conversión a tienda:</strong> Biolink a colecciones, product hauls, styling tips</li>
+        <li class="insight-item"><strong>Younger audience:</strong> Acceso a demo 18-30 años, diferente a IG</li>
+      </ul>
+    </div>
+    <div>
+      <div class="insight-header red">✗ Problemas</div>
+      <ul class="insight-list">
+        <li class="insight-item"><strong>Muy pequeño aún:</strong> 1.9K followers es micro-escala</li>
+        <li class="insight-item"><strong>Sin estrategia:</strong> Posting inconsistente, sin calendario</li>
+        <li class="insight-item"><strong>Sin conversión:</strong> No hay CTA a tienda en bio</li>
+        <li class="insight-item"><strong>Competidores adelante:</strong> Marcas competidoras ya tienen 10-50K en TikTok</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════ ANÁLISIS INTEGRAL ════════════════════════ -->
+<div id="integral" class="section">
+  <div class="section-title">07. Análisis Integral</div>
+  <h1 class="section-heading">Personal Branding: Estrategia de Dos Cuentas</h1>
+
+  <div class="card" style="padding: 24px; margin-bottom: 24px;">
+    <h3 style="color: var(--text); font-size: 16px; margin-bottom: 16px; font-weight: 600;">El Dilema: ¿Fusionar o Mantener Separadas?</h3>
+
+    <h4 style="color: var(--accent); font-size: 13px; margin-bottom: 12px; font-weight: 600;">Opción A: Mantener Separadas (RECOMENDADA)</h4>
+    <p style="color: var(--text); line-height: 1.6; margin-bottom: 12px;"><strong>Estructura:</strong> IG Personal (@alvarezcastilloluna) = awareness/inspiration. IG Empresa (@luna.alvarezcastillo) = producto/compra.</p>
+    <p style="color: var(--text); line-height: 1.6; margin-bottom: 12px;"><strong>Ventajas:</strong> Flexibilidad, audiencias segmentadas, auténtica. Luna puede expresarse personalmente sin "parecer empresa".</p>
+    <p style="color: var(--text); line-height: 1.6;"><strong>Cómo hacerlo funcionar:</strong> Cross-promotion explícita (mencionar @luna.alvarezcastillo en posts de IG Personal relevantes), CTA clara, email capture común.</p>
+
+    <hr style="margin: 20px 0; border: none; border-top: 1px solid var(--border);">
+
+    <h4 style="color: var(--accent); font-size: 13px; margin-bottom: 12px; font-weight: 600;">Opción B: Fusionar</h4>
+    <p style="color: var(--text); line-height: 1.6;"><strong>Estructura:</strong> Una sola cuenta @luna.alvarezcastillo (o @alvarezcastilloluna) con contenido mixto.</p>
+    <p style="color: var(--text); line-height: 1.6;"><strong>Ventajas:</strong> Simplicidad, 44K followers concentrados, menos fragmentación.</p>
+    <p style="color: var(--text); line-height: 1.6;"><strong>Desventajas:</strong> Pierde autenticidad personal, algunos followers pueden no estar interesados en comprar.</p>
+  </div>
+
+  <div class="grid-2">
+    <div class="chart-wrap">
+      <div class="chart-title">Radar: Fortaleza por Canal</div>
+      <div class="chart-canvas-wrap">
+        <canvas id="radarIntegral"></canvas>
+      </div>
+    </div>
+    <div class="chart-wrap">
+      <div class="chart-title">Customer Journey Estimado</div>
+      <div class="chart-canvas-wrap">
+        <canvas id="barJourney"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <div class="insights-grid">
+    <div>
+      <div class="insight-header green">✓ Puntos Positivos</div>
+      <ul class="insight-list">
+        <li class="insight-item"><strong>Personal branding sólido:</strong> Luna es el activo. Su nombre = marca diferenciada</li>
+        <li class="insight-item"><strong>Comunidad auténtica:</strong> 44K en IG personal = seguidores genuinos, no bots</li>
+        <li class="insight-item"><strong>Herencia de confianza:</strong> Etiqueta Negra amplifica credibilidad</li>
+        <li class="insight-item"><strong>Producto de calidad:</strong> Materiales nobles, diseño distinguido, precio premium justificado</li>
+        <li class="insight-item"><strong>Presencia física:</strong> 6 tiendas premium en CABA = ancla de realidad para e-commerce</li>
+        <li class="insight-item"><strong>Media connections:</strong> LO Management, prensa fashion (Schön, La Nación) = PR organic</li>
+      </ul>
+    </div>
+    <div>
+      <div class="insight-header yellow">! Puntos a Mejorar</div>
+      <ul class="insight-list">
+        <li class="insight-item"><strong>Fragmentación:</strong> 44K (personal) vs 8.4K (empresa) vs 1.9K (TikTok) = dispersión</li>
+        <li class="insight-item"><strong>Conversión invisible:</strong> No hay tracking de IG → Tienda. ¿Cuántos de 44K compran?</li>
+        <li class="insight-item"><strong>Email list = cero:</strong> 44K followers sin captura de email = oportunidad perdida</li>
+        <li class="insight-item"><strong>Content silo:</strong> IG Personal casi no menciona marca/tienda. Sinergia débil</li>
+        <li class="insight-item"><strong>Retargeting ausente:</strong> Sin pixel tracking, sin audiences dinámicas</li>
+        <li class="insight-item"><strong>Facebook + TikTok infrautilizados:</strong> Canales secundarios sin estrategia</li>
+      </ul>
+    </div>
+    <div>
+      <div class="insight-header red">✗ Puntos Críticos</div>
+      <ul class="insight-list">
+        <li class="insight-item"><strong>E-commerce dependencia:</strong> Sub-página en etiquetanegra.us = sin tráfico orgánico propio</li>
+        <li class="insight-item"><strong>IG Empresa no crece:</strong> 8.4K a pesar de 6 años de operación = bajo crecimiento</li>
+        <li class="insight-item"><strong>Desconexión personal-empresa:</strong> IG Personal (44K) no redirige a Empresa (8.4K)</li>
+        <li class="insight-item"><strong>Sin mail, sin retargeting:</strong> Abandono carrito sin recuperación. Clientes no vuelven</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════ RECOMENDACIONES ════════════════════════ -->
+<div id="recomendaciones" class="section">
+  <div class="section-title">08. Recomendaciones Priorizadas</div>
+  <h1 class="section-heading">Matriz de Impacto vs Esfuerzo (by Tomas Teloni)</h1>
+
+  <div style="margin-bottom: 32px;">
+    <div style="font-size: 12px; color: var(--subtle); margin-bottom: 16px; font-weight: 600;">Priorización según impacto (Y) y esfuerzo (X)</div>
+    <div class="matrix-outer">
+      <div class="matrix-axis-y-wrap">
+        <div class="matrix-axis-y">Impacto</div>
+      </div>
+      <div class="matrix-container">
+        <div class="matrix-quadrant matrix-q1">
+          <div class="matrix-label">🟢 Quick Wins</div>
+          <div style="font-size: 11px; color: var(--green); font-weight: 600; margin-bottom: 8px;">Semana 1-2</div>
+          <span class="matrix-tag">Link claro IG Personal → Tienda</span>
+          <span class="matrix-tag">Mencion @luna.alvarezcastillo en Personal</span>
+          <span class="matrix-tag">Optimizar horarios publicación</span>
+          <span class="matrix-tag">Email capture pop-up tienda</span>
+        </div>
+        <div class="matrix-quadrant matrix-q2">
+          <div class="matrix-label">🔵 Proyectos</div>
+          <div style="font-size: 11px; color: var(--blue); font-weight: 600; margin-bottom: 8px;">Mes 1-4</div>
+          <span class="matrix-tag">Email marketing automation</span>
+          <span class="matrix-tag">TikTok: 2 videos/semana</span>
+          <span class="matrix-tag">IG Empresa reels educativos</span>
+          <span class="matrix-tag">Facebook revival + ads testing</span>
+          <span class="matrix-tag">Analytics setup (pixel tracking)</span>
+        </div>
+        <div class="matrix-quadrant matrix-q3">
+          <div class="matrix-label">⚪ Evaluar</div>
+          <div style="font-size: 11px; color: var(--subtle); font-weight: 600; margin-bottom: 8px;">Si hay recursos</div>
+          <span class="matrix-tag">Micro-influencer colabs</span>
+          <span class="matrix-tag">Podcast/Behind-the-scenes</span>
+          <span class="matrix-tag">Landing page personal</span>
+        </div>
+        <div class="matrix-quadrant matrix-q4">
+          <div class="matrix-label">❌ Deprioritizar</div>
+          <div style="font-size: 11px; color: var(--muted); font-weight: 600; margin-bottom: 8px;">No ahora</div>
+          <span class="matrix-tag">YouTube (audiencia no existe)</span>
+          <span class="matrix-tag">Marketplace expansion</span>
+        </div>
+      </div>
+      <div class="matrix-axis-x" style="text-align: right; padding-right: 20px;">← Esfuerzo bajo | Alto →</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <h2 style="color: var(--text); font-size: 18px; margin-bottom: 20px; font-weight: 600;">Roadmap 6 Meses</h2>
+  <div class="roadmap">
+    <div class="roadmap-phase phase-q1">
+      <div class="roadmap-phase-title">🟢 Semana 1-4: Quick Wins</div>
+      <div class="roadmap-phase-sub">Setup + Low-hanging fruit</div>
+      <ul class="roadmap-items">
+        <li class="roadmap-item"><span class="roadmap-num">1</span><span>Agregar link claro a tienda en IG Personal bio</span></li>
+        <li class="roadmap-item"><span class="roadmap-num">2</span><span>Mencionar @luna.alvarezcastillo en 3-4 posts Personal relevantes</span></li>
+        <li class="roadmap-item"><span class="roadmap-num">3</span><span>Instalar email pop-up en tienda (Klaviyo/Brevo)</span></li>
+        <li class="roadmap-item"><span class="roadmap-num">4</span><span>Facebook: 1-2 posts/semana + testing ads $100-200 ARS</span></li>
+        <li class="roadmap-item"><span class="roadmap-num">5</span><span>Analizar horarios óptimo de publicación IG (data actual)</span></li>
+      </ul>
+    </div>
+    <div class="roadmap-phase phase-q2">
+      <div class="roadmap-phase-title">🟡 Mes 2-4: Proyectos</div>
+      <div class="roadmap-phase-sub">Automatización + Nuevos canales</div>
+      <ul class="roadmap-items">
+        <li class="roadmap-item"><span class="roadmap-num">6</span><span>Email marketing setup: welcome series, post-compra, abandono carrito</span></li>
+        <li class="roadmap-item"><span class="roadmap-num">7</span><span>TikTok: Publicar 2 videos/semana (styling, lifestyle, humor)</span></li>
+        <li class="roadmap-item"><span class="roadmap-num">8</span><span>IG Empresa: Reels educativos (inspiración, colecciones, proceso)</span></li>
+        <li class="roadmap-item"><span class="roadmap-num">9</span><span>Pixel tracking: Meta pixel + Google Analytics en tienda</span></li>
+        <li class="roadmap-item"><span class="roadmap-num">10</span><span>Colaboración: Outreach a 2-3 micro-influencers (10-50K seg)</span></li>
+      </ul>
+    </div>
+    <div class="roadmap-phase phase-q3">
+      <div class="roadmap-phase-title">🔵 Mes 4-6: Escalado</div>
+      <div class="roadmap-phase-sub">Optimización + Growth</div>
+      <ul class="roadmap-items">
+        <li class="roadmap-item"><span class="roadmap-num">11</span><span>Analizar resultados TikTok: Si 5K+ followers, escalar pauta a $500/mes</span></li>
+        <li class="roadmap-item"><span class="roadmap-num">12</span><span>Email marketing: A/B testing, segmentación, ROAS tracking</span></li>
+        <li class="roadmap-item"><span class="roadmap-num">13</span><span>IG Empresa: Cross-promotion agresiva, objetivo 15K followers</span></li>
+        <li class="roadmap-item"><span class="roadmap-num">14</span><span>Retargeting dinámico: Campañas abandono carrito + browsing</span></li>
+        <li class="roadmap-item"><span class="roadmap-num">15</span><span>Review & Planning: Análisis resultados, roadmap Q3 2026</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════ SCORECARD ════════════════════════ -->
+<div id="scorecard" class="section">
+  <div class="section-title">09. Scorecard de Salud Digital</div>
+  <h1 class="section-heading">Calificación 0–100 por Dimensión</h1>
+
+  <div class="grid-2">
+    <div style="display: flex; flex-direction: column; gap: 0;">
+      <div class="card" style="border-radius: 0; border-bottom: none; padding: 20px;">
+        <div id="scorecardRows"></div>
+      </div>
+    </div>
+    <div class="chart-wrap">
+      <div class="chart-title">Radar de Salud</div>
+      <div class="chart-canvas-wrap">
+        <canvas id="radarScorecard"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <div style="background: var(--card); border: 1px solid var(--border); padding: 24px;">
+    <h3 style="color: var(--text); font-size: 14px; margin-bottom: 16px; font-weight: 600;">Interpretación: 54/100 — Necesita Mejora</h3>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+      <div>
+        <h4 style="color: var(--yellow); font-size: 12px; margin-bottom: 8px; font-weight: 600;">🟡 Estado Actual</h4>
+        <p style="color: var(--text); font-size: 13px; line-height: 1.6;">
+          Luna Alvarez Castillo tiene <strong>potencial significativo sin explotar</strong>. IG Personal es fuerte (75/100), pero la Empresa está sub-escalada (55/100). Sin email marketing, retargeting, ni sinergia explícita, se pierden ~60% de oportunidades de conversión.
+        </p>
+      </div>
+      <div>
+        <h4 style="color: var(--green); font-size: 12px; margin-bottom: 8px; font-weight: 600;">✓ Target: 75+/100</h4>
+        <p style="color: var(--text); font-size: 13px; line-height: 1.6;">
+          Con ejecutar Quick Wins + Proyectos Estratégicos en 6 meses, proyectamos alcanzar <strong>75–80/100</strong>. Focus: sinergia IG, email marketing, TikTok, retargeting.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="footer-brand">© 2026 Auditoría Digital · Luna Alvarez Castillo | by Tomas Teloni</div>
+  <div class="footer-note">Análisis basado en fuentes públicas. Marzo 2026.</div>
+</div>
+
+<!-- ════════════════════════ JAVASCRIPT ════════════════════════ -->
+<script>
+// Función para mostrar secciones
+function showSection(event, id) {
+  event.preventDefault();
+  document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(el => el.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  initCharts();
+}
+
+// Data
+const DATA = {
+  healthScores: [
+    { label: 'IG Personal', score: 75, color: '#2ecc71' },
+    { label: 'IG Empresa', score: 55, color: '#f39c12' },
+    { label: 'E-commerce', score: 50, color: '#e74c3c' },
+    { label: 'TikTok', score: 45, color: '#e74c3c' },
+    { label: 'Facebook', score: 25, color: '#e74c3c' },
+    { label: 'Email/Conversión', score: 30, color: '#e74c3c' },
+    { label: 'Personal Branding', score: 70, color: '#2ecc71' }
+  ]
+};
+
+// Renderizar scorecard
+function buildScorecardRows() {
+  const container = document.getElementById('scorecardRows');
+  if (!container) return;
+  container.innerHTML = '';
+  DATA.healthScores.forEach(item => {
+    const row = document.createElement('div');
+    row.className = 'score-row';
+    row.innerHTML = `
+      <div class="score-label">${item.label}</div>
+      <div class="score-bar-wrap">
+        <div class="score-bar" style="width: ${item.score}%; background: ${item.color};"></div>
+      </div>
+      <div class="score-num">${item.score}</div>
+      <div class="score-status">${item.score >= 70 ? '✓' : item.score >= 40 ? '!' : '✗'}</div>
+    `;
+    container.appendChild(row);
+  });
+}
+
+// Gráficos
+let chartsInitialized = false;
+
+function initCharts() {
+  if (chartsInitialized) return;
+  chartsInitialized = true;
+
+  // Radar Overview
+  new Chart(document.getElementById('radarOverview'), {
+    type: 'radar',
+    data: {
+      labels: ['IG Personal', 'IG Empresa', 'E-commerce', 'TikTok', 'Facebook', 'Email', 'Brand'],
+      datasets: [{
+        label: 'Salud Digital',
+        data: [75, 55, 50, 45, 25, 30, 70],
+        borderColor: '#d4af37',
+        backgroundColor: 'rgba(212, 175, 55, 0.1)',
+        pointBackgroundColor: '#d4af37'
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: { r: { beginAtZero: true, max: 100, grid: { color: '#e0e0e0' }, ticks: { color: '#999' } } }
+    }
+  });
+
+  // Bar E-commerce
+  new Chart(document.getElementById('barEcommerce'), {
+    type: 'bar',
+    data: {
+      labels: ['Tops', 'Pantalones', 'Vestidos', 'Sweaters', 'Accesorios', 'Calzado'],
+      datasets: [{
+        label: 'SKUs',
+        data: [5, 4, 3, 3, 2, 2],
+        backgroundColor: '#d4af37'
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: { y: { beginAtZero: true, grid: { color: '#e0e0e0' }, ticks: { color: '#999' } }, x: { ticks: { color: '#999' } } }
+    }
+  });
+
+  // Doughnut Price
+  new Chart(document.getElementById('doughnutPrice'), {
+    type: 'doughnut',
+    data: {
+      labels: ['$8K-$50K', '$50K-$150K', '$150K-$300K', '$300K+'],
+      datasets: [{
+        data: [15, 35, 35, 15],
+        backgroundColor: ['#e74c3c', '#f39c12', '#3498db', '#d4af37']
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: true, labels: { color: '#999' } } }
+    }
+  });
+
+  // Line IG Empresa
+  new Chart(document.getElementById('lineIGEmpresa'), {
+    type: 'line',
+    data: {
+      labels: ['2024', '2025 Q1', '2025 Q2', '2026 Q1 (est)'],
+      datasets: [{
+        label: 'Followers',
+        data: [6000, 7200, 8100, 8400],
+        borderColor: '#d4af37',
+        backgroundColor: 'rgba(212, 175, 55, 0.05)',
+        borderWidth: 2,
+        fill: true,
+        pointBackgroundColor: '#d4af37'
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: { y: { beginAtZero: true, grid: { color: '#e0e0e0' }, ticks: { color: '#999' } }, x: { ticks: { color: '#999' } } }
+    }
+  });
+
+  // Doughnut Content Empresa
+  new Chart(document.getElementById('doughnutContentEmpresa'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Posts estáticos', 'Carousels', 'Reels', 'Stories'],
+      datasets: [{
+        data: [40, 35, 15, 10],
+        backgroundColor: ['#d4af37', '#3498db', '#2ecc71', '#e74c3c']
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: true, labels: { color: '#999' } } }
+    }
+  });
+
+  // Doughnut Content Personal
+  new Chart(document.getElementById('doughnutContentPersonal'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Lifestyle', 'Fashion/OOTD', 'Travel', 'Personal'],
+      datasets: [{
+        data: [30, 35, 20, 15],
+        backgroundColor: ['#d4af37', '#2ecc71', '#3498db', '#e74c3c']
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: true, labels: { color: '#999' } } }
+    }
+  });
+
+  // Bar Comparativa
+  new Chart(document.getElementById('barComparativa'), {
+    type: 'bar',
+    data: {
+      labels: ['Followers', 'Engagement %', 'Posts', 'Reach'],
+      datasets: [
+        {
+          label: 'IG Personal',
+          data: [44, 4, 414, 85],
+          backgroundColor: '#2ecc71'
+        },
+        {
+          label: 'IG Empresa',
+          data: [8.4, 2.5, 404, 30],
+          backgroundColor: '#f39c12'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { labels: { color: '#999' } } },
+      scales: { y: { grid: { color: '#e0e0e0' }, ticks: { color: '#999' } }, x: { ticks: { color: '#999' } } }
+    }
+  });
+
+  // Radar TikTok
+  new Chart(document.getElementById('radarTiktok'), {
+    type: 'radar',
+    data: {
+      labels: ['Followers', 'Engagement', 'Reach', 'Retention', 'Virality'],
+      datasets: [{
+        label: 'TikTok @alvarezcastilloluna',
+        data: [30, 75, 50, 55, 60],
+        borderColor: '#3498db',
+        backgroundColor: 'rgba(52, 152, 219, 0.1)',
+        pointBackgroundColor: '#3498db'
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: { r: { beginAtZero: true, max: 100, grid: { color: '#e0e0e0' } } }
+    }
+  });
+
+  // Radar Integral
+  new Chart(document.getElementById('radarIntegral'), {
+    type: 'radar',
+    data: {
+      labels: ['Reach', 'Engagement', 'Conversión', 'Autoridad', 'Sinergia'],
+      datasets: [{
+        label: 'Fortaleza por Canal',
+        data: [70, 50, 35, 80, 25],
+        borderColor: '#d4af37',
+        backgroundColor: 'rgba(212, 175, 55, 0.1)',
+        pointBackgroundColor: '#d4af37'
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: { r: { beginAtZero: true, max: 100, grid: { color: '#e0e0e0' } } }
+    }
+  });
+
+  // Bar Journey
+  new Chart(document.getElementById('barJourney'), {
+    type: 'bar',
+    data: {
+      labels: ['TikTok', 'IG Personal', 'IG Empresa', 'Email', 'Tienda'],
+      datasets: [{
+        label: 'Usuarios esperado (est.)',
+        data: [100, 100, 30, 15, 5],
+        backgroundColor: '#d4af37'
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: { y: { beginAtZero: true, grid: { color: '#e0e0e0' }, ticks: { color: '#999' } }, x: { ticks: { color: '#999' } } }
+    }
+  });
+
+  // Radar Scorecard
+  new Chart(document.getElementById('radarScorecard'), {
+    type: 'radar',
+    data: {
+      labels: ['IG Personal', 'IG Empresa', 'E-commerce', 'TikTok', 'Facebook', 'Email', 'Brand'],
+      datasets: [{
+        label: 'Score',
+        data: [75, 55, 50, 45, 25, 30, 70],
+        borderColor: '#d4af37',
+        backgroundColor: 'rgba(212, 175, 55, 0.1)',
+        pointBackgroundColor: '#d4af37'
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: { r: { beginAtZero: true, max: 100, grid: { color: '#e0e0e0' }, ticks: { color: '#999' } } }
+    }
+  });
+}
+
+// Inicializar
+document.addEventListener('DOMContentLoaded', () => {
+  buildScorecardRows();
+  initCharts();
+});
+</script>
+
+</body>
+</html>
