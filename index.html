@@ -7,20 +7,23 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <style>
     :root {
-      --bg:      #fafafa;
+      --bg:      #ffffff;
       --white:   #ffffff;
       --card:    #ffffff;
-      --card2:   #f9f9f9;
-      --border:  #e0e0e0;
-      --muted:   #999999;
-      --subtle:  #b0b0b0;
-      --text:    #1a1a1a;
-      --accent:  #d4af37;
-      --accent2: #8b7500;
-      --green:   #2ecc71;
-      --yellow:  #f39c12;
-      --red:     #e74c3c;
-      --blue:    #3498db;
+      --card2:   #faf9f8;
+      --border:  #e8e4e0;
+      --muted:   #8a7a78;
+      --subtle:  #b0a5a0;
+      --text:    #2a2420;
+      --accent:  #d4698f;
+      --accent2: #c85a82;
+      --beige:   #e8dcd5;
+      --sage:    #8fb8a8;
+      --cream:   #f5f3f0;
+      --green:   #8fb8a8;
+      --yellow:  #d4b59f;
+      --red:     #c97a7a;
+      --blue:    #7d9bc7;
       --instagram: #E1306C;
       --facebook:  #1877F2;
       --tiktok:    #000000;
@@ -53,7 +56,8 @@
       display: flex; align-items: center; justify-content: center;
       font-family: 'Georgia', serif;
       font-size: 16px; font-weight: bold;
-      color: var(--text); letter-spacing: 2px; flex-shrink: 0;
+      color: #ffffff; letter-spacing: 2px; flex-shrink: 0;
+      border-radius: 4px;
     }
     .brand-name {
       font-family: 'Georgia', serif;
@@ -198,10 +202,10 @@
       padding: 4px 10px; font-size: 10px; letter-spacing: 0.5px;
       border-radius: 3px; font-weight: 500;
     }
-    .badge-green  { background: rgba(46,204,113,.15); color: var(--green); border: 1px solid rgba(46,204,113,.3); }
-    .badge-yellow { background: rgba(243,156,18,.12); color: var(--yellow); border: 1px solid rgba(243,156,18,.3); }
-    .badge-red    { background: rgba(231,76,60,.15);  color: var(--red);    border: 1px solid rgba(231,76,60,.3); }
-    .badge-muted  { background: rgba(153,153,153,.1); color: var(--subtle); border: 1px solid rgba(153,153,153,.2); }
+    .badge-green  { background: rgba(143,184,168,.12); color: var(--sage); border: 1px solid rgba(143,184,168,.3); }
+    .badge-yellow { background: rgba(212,181,159,.12); color: var(--yellow); border: 1px solid rgba(212,181,159,.3); }
+    .badge-red    { background: rgba(201,122,122,.12); color: var(--red); border: 1px solid rgba(201,122,122,.3); }
+    .badge-muted  { background: rgba(176,165,160,.1); color: var(--subtle); border: 1px solid rgba(176,165,160,.2); }
 
     /* ── INSIGHT CARDS ── */
     .insights-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 24px; }
@@ -213,9 +217,9 @@
       font-weight: 600;
       border-bottom: 1px solid var(--border);
     }
-    .insight-header.green  { background: rgba(46,204,113,.08); color: var(--green); }
-    .insight-header.yellow { background: rgba(243,156,18,.07); color: var(--yellow); }
-    .insight-header.red    { background: rgba(231,76,60,.08);  color: var(--red); }
+    .insight-header.green  { background: rgba(143,184,168,.08); color: var(--sage); }
+    .insight-header.yellow { background: rgba(212,181,159,.07); color: var(--yellow); }
+    .insight-header.red    { background: rgba(201,122,122,.08); color: var(--red); }
     .insight-list {
       background: var(--card); border: 1px solid var(--border);
       border-top: none; list-style: none;
@@ -255,13 +259,13 @@
       font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
       font-weight: 600; margin-bottom: 4px;
     }
-    .matrix-q1 { background: rgba(46,204,113,.05); }
-    .matrix-q1 .matrix-label { color: var(--green); }
-    .matrix-q2 { background: rgba(52,152,219,.05); }
-    .matrix-q2 .matrix-label { color: var(--blue); }
-    .matrix-q3 { background: rgba(153,153,153,.04); }
+    .matrix-q1 { background: rgba(143,184,168,.05); }
+    .matrix-q1 .matrix-label { color: var(--sage); }
+    .matrix-q2 { background: rgba(212,105,143,.05); }
+    .matrix-q2 .matrix-label { color: var(--accent); }
+    .matrix-q3 { background: rgba(176,165,160,.04); }
     .matrix-q3 .matrix-label { color: var(--subtle); }
-    .matrix-q4 { background: rgba(153,153,153,.03); }
+    .matrix-q4 { background: rgba(176,165,160,.03); }
     .matrix-q4 .matrix-label { color: var(--muted); }
     .matrix-tag {
       display: inline-block; padding: 4px 10px;
@@ -287,12 +291,12 @@
       display: flex; align-items: center; justify-content: center;
       font-size: 10px; font-family: 'Georgia', serif; font-weight: 600;
     }
-    .phase-q1 .roadmap-phase-title { color: var(--green); }
-    .phase-q1 .roadmap-num { background: rgba(46,204,113,.2); color: var(--green); }
+    .phase-q1 .roadmap-phase-title { color: var(--sage); }
+    .phase-q1 .roadmap-num { background: rgba(143,184,168,.2); color: var(--sage); }
     .phase-q2 .roadmap-phase-title { color: var(--yellow); }
-    .phase-q2 .roadmap-num { background: rgba(243,156,18,.15); color: var(--yellow); }
-    .phase-q3 .roadmap-phase-title { color: var(--blue); }
-    .phase-q3 .roadmap-num { background: rgba(52,152,219,.15); color: var(--blue); }
+    .phase-q2 .roadmap-num { background: rgba(212,181,159,.15); color: var(--yellow); }
+    .phase-q3 .roadmap-phase-title { color: var(--accent); }
+    .phase-q3 .roadmap-num { background: rgba(212,105,143,.15); color: var(--accent); }
 
     /* ── DIVIDER ── */
     .divider { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
